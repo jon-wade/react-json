@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import json from './api-data.json'
+import { Rows } from './Rows'
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      { /* label is the top-most property, so add to header and make h1 */ }
+      <header>
+        <h1>Label: { json.label }</h1>
       </header>
+      { /* row is an array of levels, so abstract rendering for ease of reading / reasoning */ }
+      <section>
+        <Rows json={ json } />
+      </section>
     </div>
-  );
+  )
 }
-
-export default App;
